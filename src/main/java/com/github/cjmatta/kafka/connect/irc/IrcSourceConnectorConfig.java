@@ -40,6 +40,9 @@ public class IrcSourceConnectorConfig extends AbstractConfig {
   private static final String IRC_BOT_DOC = "The name of the IRC bot in the channel, defaults to KafkaConnectBot.";
   public static final String KAFKA_TOPIC_CONF = "kafka.topic";
   private static final String KAFKA_TOPIC_DOC = "Topic to save IRC messages to.";
+  public static final String IRC_BOTAUTH_CONF = "irc.twitchoauth";
+  private static final String IRC_BOTAUTH_DOC = "oauth string to use for bot";
+  
 
   public IrcSourceConnectorConfig(ConfigDef config, Map<String, String> parsedConfig) {
     super(config, parsedConfig);
@@ -54,6 +57,7 @@ public class IrcSourceConnectorConfig extends AbstractConfig {
         .define(IRC_SERVER_CONF, Type.STRING, Importance.HIGH, IRC_SERVER_DOC)
         .define(IRC_SERVER_PORT_CONF, Type.INT, 6667, Importance.LOW, IRC_SERVER_PORT_DOC)
         .define(IRC_BOT_NAME, Type.STRING, KafkaBotNameGenerator.generateBotName("KafkaConnectBot"), Importance.LOW, IRC_BOT_DOC)
+        .define(IRC_BOTAUTH_CONF, Type.STRING, Importance.HIGH, IRC_BOTAUTH_DOC)
         .define(IRC_CHANNELS_CONF, Type.LIST, Importance.HIGH, IRC_CHANNELS_DOC)
         .define(KAFKA_TOPIC_CONF, Type.STRING, Importance.HIGH, KAFKA_TOPIC_DOC);
   }
@@ -65,6 +69,8 @@ public class IrcSourceConnectorConfig extends AbstractConfig {
   public int getIrcServerPort() { return this.getInt(IRC_SERVER_PORT_CONF); }
 
   public String getIrcBotName() { return this.getString(IRC_BOT_NAME); }
+
+  public String getIrcBotAuth() { return this.getString(IRC_BOTAUTH_CONF); }
 
   public List<String> getIrcChannels() {
     return this.getList(IRC_CHANNELS_CONF);

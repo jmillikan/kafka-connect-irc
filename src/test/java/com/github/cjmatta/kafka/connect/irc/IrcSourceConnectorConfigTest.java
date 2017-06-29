@@ -33,6 +33,7 @@ public class IrcSourceConnectorConfigTest {
     connProps.put(IrcSourceConnectorConfig.IRC_SERVER_CONF, "irc.wikimedia.org");
     connProps.put(IrcSourceConnectorConfig.IRC_CHANNELS_CONF, "#en.wikipedia,#es.wikipedia");
     connProps.put(IrcSourceConnectorConfig.KAFKA_TOPIC_CONF, "wikipedia");
+    connProps.put(IrcSourceConnectorConfig.IRC_BOTAUTH_CONF, "XXX");
     config = new IrcSourceConnectorConfig(connProps);
   }
 
