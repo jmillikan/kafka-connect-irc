@@ -1,17 +1,19 @@
-### Kafka Connect IRC source connector
-A Kafka Connect source connector for Internet Relay Chat
+## Kafka Connect Twitch source/sink connect et cetera
 
+This is a Twitch-focused fork of cjmatta's IRC source connector, with the intent of building a multi-purpose twitch bot around Kafka.
 
 #### Running in development
 
 ```
 mvn clean package
 export CLASSPATH="$(find target/ -type f -name '*.jar'| grep '\-package' | tr '\n' ':')"
-$CONFLUENT_HOME/bin/connect-standalone $CONFLUENT_HOME/etc/schema-registry/connect-avro-standalone.properties config/kafka-connect-irc-source.properties
+$CONFLUENT_HOME/bin/connect-standalone $CONFLUENT_HOME/etc/schema-registry/connect-avro-standalone.properties config/kafka-connect-twitch-source.properties
+$CONFLUENT_HOME/bin/connect-standalone $CONFLUENT_HOME/etc/schema-registry/connect-avro-standalone.properties config/kafka-connect-twitch-sink.properties
 ```
 
 ##### License
 Copyright © 2016 Christopher Matta (chris.matta@gmail.com)
+Copyright © 2017 Jesse Millikan (jesse.a.millikan@gmail.com)
 
 Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file except in compliance with the License. You may obtain a copy of the License at
 
